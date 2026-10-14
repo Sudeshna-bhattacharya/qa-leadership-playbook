@@ -1,0 +1,72 @@
+name: 🐞 Bug report
+description: Report a defect so it can be triaged quickly
+title: "[Area] What's wrong, under which condition"
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for raising this. A clear report gets fixed faster.
+        Severity guide: see `02-process/defect-management.md`.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment & build
+      description: URL, version/build number, browser and device
+      placeholder: "staging · build 2026.11.3 · Chrome 131 · Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered, minimal, including test data used
+      placeholder: |
+        1. Log in as standard_user
+        2. Add "Backpack" to the cart
+        3. Apply coupon SAVE10
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Sev 1: Critical (system down / data loss / no workaround)"
+        - "Sev 2: Major (major feature broken / wrong results)"
+        - "Sev 3: Moderate (workaround exists)"
+        - "Sev 4: Minor (cosmetic)"
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: Frequency
+      options:
+        - Always
+        - Intermittent
+        - Once
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshots, video, trace, HAR, logs, request id
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Workarounds, related tickets, suspected cause
